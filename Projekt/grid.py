@@ -5,7 +5,7 @@ import pygame
 from pygame.locals import *
     #print(sys.path)
 # Prerequisite definitions --------------------------------------------------
-def grid():
+def draw_grid(l=40,h=30,X=1600,Y=900):
 #----------------------------------------------------------------------------
 #Initiate Pygame
     pygame.init()
@@ -16,14 +16,14 @@ def grid():
     black = (0,0,0)
     white = (255,255,255)
     grey = (128,128,128)
-    X = 1200 #<- Te dve se stpreminjata #ce nastimam 1880 1000 se umes med kvadratki pojaujo spaci :/
-    Y = 900 #<- Te dve se stpreminjata
-    Z = 0
-    l = 40 #in game units
-    h = 30 #in game units
+    #X = 1200 #<- Te dve se stpreminjata #ce nastimam 1880 1000 se umes med kvadratki pojaujo spaci :/
+    #Y = 900 #<- Te dve se stpreminjata
+    #Z = 0
+    #l = 40 #in game units
+    #h = 30 #in game units
 
 #window setup
-    window = pygame.display.set_mode((X, Y))# """pygame.RESIZABLE"""
+    window = pygame.display.set_mode((X, Y),pygame.RESIZABLE)# """pygame.RESIZABLE"""
     window.fill(white) # <- tuki se lohk importa background image
     pygame.display.set_caption("Grid")
     #background_image = pygame.image.load('default_background.jpg')
@@ -37,6 +37,9 @@ def grid():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 state = False #if the user wants to close the window, close the window
+            elif event.type == pygame.VIDEORESIZE:
+                window = pygame.display.set_mode(event.size, pygame.RESIZABLE)
+                window.fill(white)
 
 #---------------------------------------------------------------------------------
 #Here goes the code --------------------------------------------------------------
