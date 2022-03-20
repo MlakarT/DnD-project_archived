@@ -21,6 +21,7 @@
 #- Dobil sem testne assete, ustvaril mapo Assets, zahvala @cainos_chen na twt; https://cainos.itch.io/pixel-art-top-down-basic
 #- Dodal testno okno za besedilni input, iz katerega bom pobiral informacije
 #- Program je po implementirani kodi začel delovati počasi, nekje se počasi začne izvajati
+#- Odpravil počasno delovanje in glitchanje
 #več v torek
 #
 #--------------------------------------------------------
