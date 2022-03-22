@@ -11,6 +11,7 @@ import pygame
 from pygame.locals import *
 #import grid <------------ unused import, changed my mind mid way
 import border
+import seed
 
 #Initiate Pygame ------------------------------------------------
 pygame.init()
@@ -37,14 +38,36 @@ color_passive = (192, 192, 192)
 input_box_color = color_passive 
 
 #Grid prereqs ---------------------------------------------------
-grid = pygame.Rect(border.create_border(X,Y))
+#A seedy place --------------------------------------------------
+map_seed = seed.generate()
+map = seed.read(map_seed)
+l, h , z , unique_identifier = map
+seed_box = pygame.Rect(50,200,200,40)
+seed_text = map_seed
+
+# ---------------------------------------------------------------
+
 grey = (128,128,128)
-grid_x_init = border.create_border(X,Y)[0]
-grid_y_init = border.create_border(X,Y)[1]
-grid_width = border.create_border(X,Y)[2]
-grid_height = border.create_border(X,Y)[3]
-l = 40 #temporary, will replace later with user_input_length
-h = 30 #temporary, will replace later with user_input_height
+grid_x_init, grid_y_init, grid_width, grid_height = border.create_border(X,Y)
+#l = 40 #temporary, will replace later with user_input_length
+#h = 30 #temporary, will replace later with user_input_height
+sq_side = grid_width // l
+#if grid_y_init + h * sq_side + border.border > Y: # <---- Ta stvar 
+#    h = 
+    #while grid_y_init + h * sq_side + border.border > Y:
+    #    h -=1
+
+#Calculate max grid height
+
+for i in range(h+1):
+    if grid_y_init + (i) * sq_side > grid_height:
+        h = i - 1
+        break
+    else:
+        continue
+
+grid = pygame.Rect(grid_x_init, grid_y_init, l * sq_side, (h+1) * sq_side)
+print(map)
 
 #Infinite loop --------------------------------------------------
 state = True
@@ -87,22 +110,25 @@ while state:
     text_surface = input_font.render(user_text, True, (0,0,0))
     window.blit(text_surface, (input_box.x+5, input_box.y+5))
     input_box.w = max(200, text_surface.get_width()+10)
-    pygame.display.flip()
+
 #----------------------------------------------------------------
+
+#Seed box -------------------------------------------------------
+    pygame.draw.rect(window, input_box_color, seed_box)
+    seed_surface = input_font.render(seed_text ,True, (0,0,0))
+    window.blit(seed_surface, (seed_box.x+5, seed_box.y+5))
+    seed_box.w = max (200, seed_surface.get_width()+10)
+
+#----------------------------------------------------------------
+    
 #Grid -----------------------------------------------------------
-    sq_side = grid_width // l
-    bottom_border = h+1
-    for i in range(l+1):
-        for j in range(h+1):
-            if grid_y_init + (j-1) * sq_side > grid_height:
-                bottom_border = j
-                break
+    for i in range(l):
+        for j in range(h): #range gre do h - 1, v tem seznamu ni h-ja
             pygame.draw.rect(window,grey,(grid_x_init + i * sq_side,grid_y_init + j * sq_side, sq_side, sq_side),1)
         #if h * sq_side > grid_height:
         #    pygame.draw.rect(window,black,(grid_x_init,grid_y_init,grid_width,grid_height),5)
         #else:
-    pygame.draw.rect(window,black,(grid_x_init,grid_y_init,grid_width,bottom_border * sq_side),5) # <----this is fix
-    pygame.display.flip()
+    pygame.draw.rect(window,black,(grid_x_init, grid_y_init, l * sq_side, h * sq_side),5) # <----this is fix
 
 #This window is the grid surface, will be used for drawing later-
     if grid_active == True: #this thing is gonna draw my grid
