@@ -36,6 +36,7 @@
 #- Dodal seed
 #- Napisal pravilno (bolj efektivno) računanje maksimalnega h za izrisovanje grida
 #- Okno za izpisovanje seeda
+#- Pravilna velikost okna grid, na katerega se bodo kasneje izrisovale slike
 #- Počistil kodo (Hvala Eva)
 #več jutri
 #
