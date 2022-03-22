@@ -16,7 +16,7 @@
 #
 #--------------------------------------------------------
 #19. 3. 22
-#Delo v parent programu:
+#Delo v parent datoteki:
 #- Pretvoril grid.py v interno kodo znotraj map_randomizer.py
 #- Dobil sem testne assete, ustvaril mapo Assets, zahvala @cainos_chen na twt; https://cainos.itch.io/pixel-art-top-down-basic
 #- Dodal testno okno za besedilni input, iz katerega bom pobiral informacije
@@ -25,3 +25,18 @@
 #več v torek
 #
 #--------------------------------------------------------
+#22. 3. 22
+#Nova datoteka: Seed.py
+#- Pomožna koda za branje, generiranje in shranjevanje seeda
+#- Seed je unikatna številka asociirana z vsako mapo; sestavljena iz 10 števk: prva in druga dve sta število kvadratkov v x smeri;
+#- tretja in četrta sta število kvadratkov v y smeri (o tem več v naslednjem razdelku), peta je z vrednost, preostalih 5 pa je rezerviranih za risanje mape same.
+#- Generate() in read() zgenerirate in prebereta/ pretvorita seed v koordinate za uporabo v parent datoteki
+#
+#Delo v parent datoteki:
+#- Dodal seed
+#- Napisal pravilno (bolj efektivno) računanje maksimalnega h za izrisovanje grida
+#- Okno za izpisovanje seeda
+#- Počistil kodo (Hvala Eva)
+#več jutri
+#
+#-------------------------------------------------------
