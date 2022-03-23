@@ -41,3 +41,12 @@
 #več jutri
 #
 #-------------------------------------------------------
+#23. 3. 22
+#Delo v parent datoteki
+#- Dodal okenca za l,h,z
+#- Omogočil urejanje okenc in s tem hkrati besedila
+#- Ugotovil, da sta grid_width in grid_height slabo definirana, saj se pri spreminjanju h in l pokvarita (predvsem h, ampak ima l iste tezave)
+#- Dodal gumb refresh, ki posodobi okno in mrežo
+#- popravil okno grid, zdaj deluje pravilno
+#- počistil kodo, ustvaril novo funkcijo v border.
+#več čez vikend
