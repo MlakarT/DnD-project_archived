@@ -12,3 +12,7 @@ def create_border(X:int, Y:int):
     grid_heigth = Y - grid_y_init - border
     return (grid_x_init,grid_y_init,grid_width,grid_heigth)
 
+def refresh_bottom_border(Y:int):
+    bottom_border = 50
+    return  0.9 * Y - bottom_border
+

@@ -4,7 +4,7 @@ import random as rd
 
 # Generate seed
 def generate():
-    l = str(rd.randint(2,50))
+    l = str(rd.randint(3,50))
     l = l.zfill(2)
     h = str(rd.randint(2,50))
     h = h.zfill(2)
