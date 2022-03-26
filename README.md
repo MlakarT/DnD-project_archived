@@ -45,6 +45,7 @@ in lahko kvadratki segajo čez okno. V ta namen se po definicija h-ja ponovno iz
 V ta namen se definira funkcija calculate_max_h(), ki naredi to. 
 Ker lahko uporabnik spremeni h, lahko preseže to smiselno količino, in se mora ta h na novo preračunati vsakič, ko gre program skozi loop. 
 **Potrebno je spremeniti še, kdaj se h in sq_side ponovno računata. Trenutno se v vsaki iteraciji programa (30x na sekundo), morala pa bi se le, ko uporabnik pritisne refresh.**
+#
 **23. marec 22**
 
 Delo v parent datoteki:
