@@ -3,16 +3,16 @@ Mapping project for Dungeons and Dragons Tabletop game.
 #
 Opis projekta: pride kasneje+
 #
-Začetek projekta: ######12. marec 22
+Začetek projekta: **12. marec 22**
 - Ustvaril osnovni repozitorij, datoteke in pomožne datoteke,
 - program, ki nariše mrežo,
 - naučil sem se importanja v druge/nvoe datoteke, uporaba metod
 #
-######13. marec 22
+**13. marec 22**
 
 Ustvaril parent program in se igral z velikostjo oken in parametri
 #
-######19. marec 22
+**19. marec 22**
 
 Delo v parent datoteki:
 - Pretvoril grid.py v interno kodo znotraj map_randomizer.py
@@ -22,7 +22,7 @@ Delo v parent datoteki:
 - Odpravil počasno delovanje in glitchanje
 več v torek
 #
-######22. marec 22
+**22. marec 22**
 
 Nova datoteka: Seed.py
 - Pomožna koda za branje, generiranje in shranjevanje seeda
@@ -38,7 +38,7 @@ Delo v parent datoteki:
 - Počistil kodo (Hvala Eva)
 več jutri
 #
-######23. marec 22
+**23. marec 22**
 
 Delo v parent datoteki
 - Dodal okenca za l,h,z
@@ -49,7 +49,7 @@ Delo v parent datoteki
 - počistil kodo, ustvaril novo funkcijo v border.
 več čez vikend
 #
-######26. marec 22
+**26. marec 22**
 
 Ran into some problems; namely:
 Projektna naloga zahteva spletno stran / spletni vmesnik; izkaže pa se, da pygame knjižnica ne deluje z nobenim od api-jev, ki so na voljo za importiranje
