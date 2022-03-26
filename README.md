@@ -40,7 +40,7 @@ več jutri
 #
 **23. marec 22**
 
-Delo v parent datoteki
+Delo v parent datoteki:
 - Dodal okenca za l,h,z
 - Omogočil urejanje okenc in s tem hkrati besedila
 - Ugotovil, da sta grid_width in grid_height slabo definirana, saj se pri spreminjanju h in l pokvarita (predvsem h, ampak ima l iste tezave)
@@ -59,3 +59,16 @@ koda ostane/se spremeni v podobno, a celotno risanje se izvaja direktno v hmtl (
 poišče se nov library in začne na novo(kar pa tudi ni idealno)
 Ta koda bo ostala, saj bo iz nje nastala vsaj prototipna aplikacija za generiranje map, in izkušnja v programiranju in novo znanje pythona.
 Dodatno: počisti se readme:
+#
+Delo v parent datoteki:
+- Odpravil buge v risanju mreže
+  - Redefiniral l in h v primeru, da uporabnik spremeni katero od vrednosti
+  - zaenkrat velikost mreže v x smeri ostane konstantna
+  - maksimalni h se ponovno preračuna
+- odpravil buge pri displayanju seeda; dodal error, ki neha risati mapo v primeri da seed string ni ustrezen
+- napravil osnovno displayanje slik
+#
+Novo v border:
+- calculate_max_h() ki vzame parametre in izračuna max h, malo očisti kodo znotraj glavne datoteke
+več jutri (mogoče)
+#
