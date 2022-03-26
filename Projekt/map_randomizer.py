@@ -39,6 +39,7 @@ color_passive = (192, 192, 192)
 
 input_box_color = color_passive 
 
+
 #Grid prereqs ---------------------------------------------------
 #A seedy place --------------------------------------------------
 map_seed = seed.generate()
@@ -82,15 +83,25 @@ sq_side = grid_width // l
 
 #Calculate max grid height
 
-for i in range(h+1):
-    if grid_y_init + (i) * sq_side > grid_height:
-        h = i - 1
-        break
-    else:
-        continue
+h = border.calculate_max_h(grid_y_init,sq_side,grid_height,h)
+#for i in range(h+1):
+#    if grid_y_init + (i) * sq_side > grid_height:
+#        h = i - 1
+#        break
+#    else:
+#        continue
 
 grid = pygame.Rect(grid_x_init, grid_y_init, l * sq_side, h * sq_side)
 print(map)
+
+#----------------------------------------------------------------
+#Dungeon prereqs: dev build:
+
+bridge1 = pygame.image.load("Projekt\Assets\Bridge1.jpg")
+bridge2 = pygame.image.load("Projekt\Assets\Bridge2.jpg")
+platform = pygame.image.load("Projekt\Assets\Platform.jpg")
+
+
 
 #Infinite loop --------------------------------------------------
 state = True
@@ -104,6 +115,7 @@ while state:
         elif event.type == pygame.VIDEORESIZE:
             window = pygame.display.set_mode(event.size, pygame.RESIZABLE)
             window.fill(white)
+            X,Y = window.get_size()
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: #<- Aktivira okna posebej #event.button == 1 preveri, ce je biu levi klik
             text_active = input_box.collidepoint(event.pos)
             grid_active = grid.collidepoint(event.pos)
@@ -145,7 +157,7 @@ while state:
 #Code goes here
 #----------------------------------------------------------------
     
-#Text box 1 ----------------------------------------------------- 
+# Test text box 1 ----------------------------------------------------- 
     if text_active:
         input_box_color = color_active #determines the input box color in both states
     else:
@@ -161,7 +173,7 @@ while state:
 #Seed boxes -----------------------------------------------------
     
     pygame.draw.rect(window, seed_input_color, seed_box)
-    if len(map_seed) == 10:
+    if len(seed_text) == 10:
         seed_surface = input_font.render(seed_text ,True, (0,0,0))
         window.blit(seed_surface, (seed_box.x+5, seed_box.y+5))
         seed_box.w = max (200, seed_surface.get_width()+10)
@@ -193,23 +205,31 @@ while state:
     if refresh_active:
         refresh_color = dark_green
         seed_text = seed_l_text.zfill(2) + seed_h_text.zfill(2) + seed_z_text + str(unique_identifier)
-        l, h, z = int(seed_l_text.zfill(2)), int(seed_h_text.zfill(2)), int(seed_z_text)
-    #    pygame.display.update() <----------- currently does nothing
-    #potrebno je redefinirati še grid_width
+        print(seed_text)
+        l, h, z, unused_identifier = seed.read(seed_text) #unused identifier sa napise samo v prazno, zato da ostane isti identifier
+        print(seed.read(seed_text))
+        refresh_active = False
+
 #Grid -----------------------------------------------------------
-    for i in range(l):
-        for j in range(h): #range gre do h - 1, v tem seznamu ni h-ja
-            pygame.draw.rect(window,grey,(grid_x_init + i * sq_side,grid_y_init + j * sq_side, sq_side, sq_side),1)
-    pygame.draw.rect(window,black,(grid_x_init, grid_y_init, l * sq_side, h * sq_side),5) # <----this is fix
+    if len(seed_text) == 10:    
+        sq_side = grid_width // l
+        h = border.calculate_max_h(grid_y_init,sq_side,grid_height,h) #<- ta stvar prepreci da bi se izrisala 1x1 mreza
+        for i in range(l):
+            for j in range(h): #range gre do h - 1, v tem seznamu ni h-ja
+                pygame.draw.rect(window,grey,(grid_x_init + i * sq_side,grid_y_init + j * sq_side, sq_side, sq_side),1)
+        pygame.draw.rect(window,black,(grid_x_init, grid_y_init, l * sq_side, h * sq_side),5) # <----this is fix
 
 #This window is the grid surface, will be used for drawing later-
     if grid_active: #this thing is gonna draw my grid
-        pygame.draw.rect(window,grey,grid)
-    
+        #pygame.draw.rect(window,grey,grid) # <-- tega ne rabim
+        window.blit(bridge1, (grid_x_init, grid_y_init))
+        window.blit(bridge2, (grid_x_init + 3 * sq_side, grid_y_init))
+        window.blit(platform, (grid_x_init + 6 * sq_side, grid_y_init))
 
+    
 #Window updates -------------------------------------------------
     pygame.display.update()
-    clock.tick(1)
+    clock.tick(30)
 
 #Quit Pygame ----------------------------------------------------
 pygame.quit()

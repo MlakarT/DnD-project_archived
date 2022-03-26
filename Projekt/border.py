@@ -16,3 +16,12 @@ def refresh_bottom_border(Y:int):
     bottom_border = 50
     return  0.9 * Y - bottom_border
 
+def calculate_max_h(grid_y_init, sq_side, grid_height,h):
+    for i in range(h+1):
+        if grid_y_init + (i) * sq_side > grid_height:
+            h = i - 1
+            break
+        else:
+            continue
+    return h
+
