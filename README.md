@@ -3,18 +3,15 @@ Mapping project for Dungeons and Dragons Tabletop game.
 #
 Opis projekta: pride kasneje+
 #
-
-Začetek projekta: 12. 3. 22
+Začetek projekta: 12. marec 22
 - Ustvaril osnovni repozitorij, datoteke in pomožne datoteke,
 - program, ki nariše mrežo,
 - naučil sem se importanja v druge/nvoe datoteke, uporaba metod
 #
-
-13. 3. 22
+13. marec 22
 Ustvaril parent program in se igral z velikostjo oken in parametri
 #
-
-19. 3. 22
+19. marec 22
 Delo v parent datoteki:
 - Pretvoril grid.py v interno kodo znotraj map_randomizer.py
 - Dobil sem testne assete, ustvaril mapo Assets, zahvala @cainos_chen na twt; https://cainos.itch.io/pixel-art-top-down-basic
@@ -23,8 +20,7 @@ Delo v parent datoteki:
 - Odpravil počasno delovanje in glitchanje
 več v torek
 #
-
-22. 3. 22
+22. marec 22
 Nova datoteka: Seed.py
 - Pomožna koda za branje, generiranje in shranjevanje seeda
 - Seed je unikatna številka asociirana z vsako mapo; sestavljena iz 10 števk: prva in druga dve sta število kvadratkov v x smeri;
@@ -39,8 +35,7 @@ Delo v parent datoteki:
 - Počistil kodo (Hvala Eva)
 več jutri
 #
-
-23. 3. 22
+23. marec 22
 Delo v parent datoteki
 - Dodal okenca za l,h,z
 - Omogočil urejanje okenc in s tem hkrati besedila
@@ -50,8 +45,7 @@ Delo v parent datoteki
 - počistil kodo, ustvaril novo funkcijo v border.
 več čez vikend
 #
-
-26. 3. 22
+26. marec 22
 Ran into some problems; namely:
 Projektna naloga zahteva spletno stran / spletni vmesnik; izkaže pa se, da pygame knjižnica ne deluje z nobenim od api-jev, ki so na voljo za importiranje
 kode v html.
