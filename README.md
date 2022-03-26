@@ -50,3 +50,14 @@
 #- popravil okno grid, zdaj deluje pravilno
 #- počistil kodo, ustvaril novo funkcijo v border.
 #več čez vikend
+#
+#-------------------------------------------------------
+#26. 3. 22
+#Ran into some problems; namely:
+#Projektna naloga zahteva spletno stran / spletni vmesnik; izkaže pa se, da pygame knjižnica ne deluje z nobenim od api-jev, ki so na voljo za importiranje
+kode v html.
+#Trenutne možnosti so tri: nadaljuj projektno as-is, le da končna koda samo izvozi "sliko" mape in jo vrže na spletno stran (lahko bi bilo problematično s časom);
+koda ostane/se spremeni v podobno, a celotno risanje se izvaja direktno v hmtl (to reši večino težav, a nevem kako točno bi bilo to z uvažanjem/izvažanjem slik);
+poišče se nov library in začne na novo(kar pa tudi ni idealno)
+#Ta koda bo ostala, saj bo iz nje nastala vsaj prototipna aplikacija za generiranje map, in izkušnja v programiranju in novo znanje pythona.
+#Dodatno: počisti se readme:
