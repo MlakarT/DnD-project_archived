@@ -9,10 +9,11 @@ Začetek projekta: 12. marec 22
 - naučil sem se importanja v druge/nvoe datoteke, uporaba metod
 #
 13. marec 22
-#
+
 Ustvaril parent program in se igral z velikostjo oken in parametri
 #
-19. marec 22 #
+19. marec 22
+
 Delo v parent datoteki:
 - Pretvoril grid.py v interno kodo znotraj map_randomizer.py
 - Dobil sem testne assete, ustvaril mapo Assets, zahvala @cainos_chen na twt; https://cainos.itch.io/pixel-art-top-down-basic
@@ -22,7 +23,7 @@ Delo v parent datoteki:
 več v torek
 #
 22. marec 22
-#
+
 Nova datoteka: Seed.py
 - Pomožna koda za branje, generiranje in shranjevanje seeda
 - Seed je unikatna številka asociirana z vsako mapo; sestavljena iz 10 števk: prva in druga dve sta število kvadratkov v x smeri;
@@ -38,7 +39,7 @@ Delo v parent datoteki:
 več jutri
 #
 23. marec 22
-#
+
 Delo v parent datoteki
 - Dodal okenca za l,h,z
 - Omogočil urejanje okenc in s tem hkrati besedila
@@ -49,7 +50,7 @@ Delo v parent datoteki
 več čez vikend
 #
 26. marec 22
-#
+
 Ran into some problems; namely:
 Projektna naloga zahteva spletno stran / spletni vmesnik; izkaže pa se, da pygame knjižnica ne deluje z nobenim od api-jev, ki so na voljo za importiranje
 kode v html.
