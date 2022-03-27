@@ -80,3 +80,16 @@ Novo v border:
 - calculate_max_h() ki vzame parametre in izračuna max h, malo očisti kodo znotraj glavne datoteke
 več jutri (mogoče)
 #
+**27. marec 22**
+Delo v parent datoteki:
+- testna koda za izrisovanje platform in mostov;
+- trenutno ne dela, izriše le platformi (ki bosta kasneje premični) in most med njima
+- testna koda za branje navodil ni delovala, trenutno ni v uporabi
+#
+Delo v seed.py:
+- ustvaril funkciji steps() in basic_steps() ki vzameta parameter map in lokacijo začetne in končne platforme v (l,h) kordinatah
+- basic_steps() dela zelo preposto, napiše linearna navodila za most in platforme vmes;
+- je motivacija/ideja za celo funkcijo steps(), ki iz argumentov napravi list navodil, ki izgledajo kot [slika, (lokacija), rotacija]
+- parent datoteka naj bi ta list prebrala in ga izrisala s for loopom
+več čez teden
+#
