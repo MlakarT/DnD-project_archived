@@ -4,6 +4,7 @@
 #For any issues or questions please contact me at timo.mlakar@gmail.com or at my university email tm2012@student.uni-lj.si
 #The program will use Pygame for drawing purposes
 
+from email.policy import default
 import sys
 import math
 from tkinter import LEFT
@@ -45,8 +46,8 @@ input_box_color = color_passive
 map_seed = seed.generate()
 map = seed.read(map_seed)
 l, h , z , unique_identifier = map
-#l = 200 #temporary, will replace later with user_input_length
-#h = 50 #temporary, will replace later with user_input_height
+#l = 200 #temporary
+#h = 50 #temporary
 #z = 1
 #map_seed = 'asfkjg'
 light_grey =(211, 211, 211)
@@ -84,12 +85,7 @@ sq_side = grid_width // l
 #Calculate max grid height
 
 h = border.calculate_max_h(grid_y_init,sq_side,grid_height,h)
-#for i in range(h+1):
-#    if grid_y_init + (i) * sq_side > grid_height:
-#        h = i - 1
-#        break
-#    else:
-#        continue
+
 
 grid = pygame.Rect(grid_x_init, grid_y_init, l * sq_side, h * sq_side)
 print(map)
@@ -100,9 +96,26 @@ print(map)
 bridge1 = pygame.image.load("Projekt\Assets\Bridge1.jpg")
 bridge2 = pygame.image.load("Projekt\Assets\Bridge2.jpg")
 platform = pygame.image.load("Projekt\Assets\Platform.jpg")
+beginning_platform = pygame.image.load("Projekt\Assets\Beginning_platform.png")
+ending_platform = pygame.image.load("Projekt\Assets\Beginning_platform.png")
 
+#bridge1_default_size = bridge1.get_size()
+#bridge1_size = bridge1_default_size
+default_bridge_size = sq_side, 2 * sq_side
+default_platform_size = sq_side * 3, sq_side * 3
+default_beginning_platform_size = sq_side * 5, sq_side
+bridge1 = pygame.transform.scale(bridge1, default_bridge_size)
+bridge2 = pygame.transform.scale(bridge2, default_bridge_size)
+platform = pygame.transform.scale(platform, default_platform_size)
+beginning_platform = pygame.transform.scale(beginning_platform, default_beginning_platform_size)
+ending_platform = pygame.transform.scale(ending_platform, default_beginning_platform_size)
+bridge1_rotated = pygame.transform.rotate(bridge1, 90)
+bridge2_rotated = pygame.transform.rotate(bridge2, 90)
 
-
+#starting_l = 0
+#starting_h = 1
+#step_list = seed.steps(map, starting_l, starting_h)
+#print(step_list)
 #Infinite loop --------------------------------------------------
 state = True
 text_active = False
@@ -207,6 +220,7 @@ while state:
         seed_text = seed_l_text.zfill(2) + seed_h_text.zfill(2) + seed_z_text + str(unique_identifier)
         print(seed_text)
         l, h, z, unused_identifier = seed.read(seed_text) #unused identifier sa napise samo v prazno, zato da ostane isti identifier
+        #step_list = seed.steps(seed.read(seed_text), starting_l, starting_h)
         print(seed.read(seed_text))
         refresh_active = False
 
@@ -214,17 +228,57 @@ while state:
     if len(seed_text) == 10:    
         sq_side = grid_width // l
         h = border.calculate_max_h(grid_y_init,sq_side,grid_height,h) #<- ta stvar prepreci da bi se izrisala 1x1 mreza
+
+#Calculating image size -----------------------------------------
+        default_bridge_size = sq_side, 2 * sq_side
+        default_platform_size = sq_side * 3, sq_side * 3
+        default_beginning_platform_size = sq_side * 5, sq_side
+        scaled_bridge1 = pygame.transform.scale(bridge1, default_bridge_size)
+        scaled_bridge2 = pygame.transform.scale(bridge2, default_bridge_size)
+        scaled_platform = pygame.transform.scale(platform, default_platform_size)
+        scaled_beginning_platform = pygame.transform.scale(beginning_platform, default_beginning_platform_size)
+        beginning_platform_rotated = pygame.transform.rotate(scaled_beginning_platform, 90)
+        bridge1_rotated = pygame.transform.rotate(scaled_bridge1, 90)
+        bridge2_rotated = pygame.transform.rotate(scaled_bridge2, 90)
+        starting_l = 0 * sq_side
+        starting_h = 1 * sq_side
+#---------------------------------------------------------------
+#Temporary draw window -----------------------------------------
+        
+        #for i in step_list:
+        #    if i[0] == 0: #bridge 1
+        #        if i[2] == 0 or i[2] == 180:
+        #            window.blit(bridge1_rotated, (grid_x_init + i[1][0] * sq_side, grid_y_init + i[1][1] * sq_side))
+        #        else:
+        #            window.blit(scaled_bridge1, (grid_x_init + i[1][0] * sq_side, grid_y_init + i[1][1] * sq_side))
+        #    elif i[0] == 1: # bridge 2
+        #        if i[2] == 0 or i[2] == 180:
+        #           window.blit(bridge2_rotated, (grid_x_init + i[1][0] * sq_side, grid_y_init + i[1][1] * sq_side))
+        #        else:
+        #             window.blit(scaled_bridge2, (grid_x_init + i[1][0] * sq_side, grid_y_init + i[1][1] * sq_side))
+        #    elif i[0] == 2: #platform
+        #        window.blit(scaled_platform, (grid_x_init + i[1][0] * sq_side, grid_y_init + i[1][1] * sq_side))
+            #elif i[1][0] > grid_width or i[1][1] > grid_height:
+            #    break
+        # This code should suffice for drawing, just needs more.... pizzazz
+        for i in range(0,(h-1) // 2):
+            window.blit(scaled_bridge1, (grid_x_init + (l // 2 - 1) * sq_side, grid_y_init + sq_side + 2 * i * sq_side))
+        #window.blit(scaled_platform, (grid_x_init + (l // 2 - 2) * sq_side, h // 2 * sq_side))
+        window.blit(scaled_beginning_platform, (grid_x_init + (l// 2 - 3) * sq_side, grid_y_init))
+        window.blit(scaled_beginning_platform, (grid_x_init + (l // 2 - 3) * sq_side, grid_y_init + (h-1) * sq_side))
+        #window.blit(scaled_bridge1, (grid_x_init, grid_y_init))
+        #window.blit(scaled_bridge2, (grid_x_init + 3 * sq_side, grid_y_init))
+        #window.blit(scaled_platform, (grid_x_init + 6 * sq_side, grid_y_init))
+
+#---------------------------------------------------------------
         for i in range(l):
             for j in range(h): #range gre do h - 1, v tem seznamu ni h-ja
                 pygame.draw.rect(window,grey,(grid_x_init + i * sq_side,grid_y_init + j * sq_side, sq_side, sq_side),1)
         pygame.draw.rect(window,black,(grid_x_init, grid_y_init, l * sq_side, h * sq_side),5) # <----this is fix
 
 #This window is the grid surface, will be used for drawing later-
-    if grid_active: #this thing is gonna draw my grid
+    #if grid_active: #this thing is gonna draw my grid
         #pygame.draw.rect(window,grey,grid) # <-- tega ne rabim
-        window.blit(bridge1, (grid_x_init, grid_y_init))
-        window.blit(bridge2, (grid_x_init + 3 * sq_side, grid_y_init))
-        window.blit(platform, (grid_x_init + 6 * sq_side, grid_y_init))
 
     
 #Window updates -------------------------------------------------

@@ -1,6 +1,8 @@
 # Code for anything to do with the seed, seed generating, seed reading and controll
 
+
 import random as rd
+from tracemalloc import start
 
 # Generate seed
 def generate():
@@ -22,3 +24,33 @@ def read(strg):
     unique_identifier = int(strg[5:])
     return (l,h,z, unique_identifier)
     
+basic_map = 0,0
+
+def steps(map:tuple , starting_l=0, starting_h=1,):
+    map_length = sum(int(i) for i in str(map[3])) #<----- calculate map length based on unique_identifier
+    list_of_steps = []
+    i = 0
+    j = 0
+    while i <= map_length:
+        if j % 3 == 0:
+            list_of_steps.append([j % 3, (starting_l + i,starting_h), 0])
+            i += 2
+            j += 1
+        elif j % 3 == 1:
+            list_of_steps.append([j % 3, (starting_l + i,starting_h), 0])
+            i += 2
+            j += 1
+        elif j % 3 == 2:
+            list_of_steps.append([j % 3, (starting_l + i,starting_h - 1), 0]) 
+            i += 3
+            j += 1
+    return list_of_steps
+
+def basic_steps(map:tuple ,sq_side:int, starting_x=0, starting_y=0,):
+    map_length = sum(int(i) for i in str(map[3]))
+    list_of_steps = []
+    i = 0
+    while i <= map_length:
+        list_of_steps.append([i % 3, (starting_x + 2 * i * sq_side, starting_y), 0])
+        i += 1
+    return list_of_steps
