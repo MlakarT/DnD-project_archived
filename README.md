@@ -6,7 +6,7 @@ Opis projekta: pride kasneje+
 Začetek projekta: **12. marec 22**
 - Ustvaril osnovni repozitorij, datoteke in pomožne datoteke,
 - program, ki nariše mrežo,
-- naučil sem se importanja v druge/nvoe datoteke, uporaba metod
+- naučil sem se importanja v druge/nove datoteke, uporaba metod
 #
 **13. marec 22**
 
@@ -20,6 +20,7 @@ Delo v parent datoteki:
 - Dodal testno okno za besedilni input, iz katerega bom pobiral informacije
 - Program je po implementirani kodi začel delovati počasi, nekje se počasi začne izvajati
 - Odpravil počasno delovanje in glitchanje
+\n
 več v torek
 #
 **22. marec 22**
