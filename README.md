@@ -20,7 +20,7 @@ Delo v parent datoteki:
 - Dodal testno okno za besedilni input, iz katerega bom pobiral informacije
 - Program je po implementirani kodi začel delovati počasi, nekje se počasi začne izvajati
 - Odpravil počasno delovanje in glitchanje
-več v torek
+#več v torek
 #
 **22. marec 22**
 
@@ -36,7 +36,7 @@ Delo v parent datoteki:
 - Okno za izpisovanje seeda
 - Pravilna velikost okna grid, na katerega se bodo kasneje izrisovale slike
 - Počistil kodo (Hvala Eva)
-več jutri
+#več jutri
 #
 
 **dodatno pojasnilo za h:**
@@ -55,7 +55,7 @@ Delo v parent datoteki:
 - Dodal gumb refresh, ki posodobi okno in mrežo
 - popravil okno grid, zdaj deluje pravilno
 - počistil kodo, ustvaril novo funkcijo v border.
-več čez vikend
+#več čez vikend
 #
 **26. marec 22**
 
@@ -78,7 +78,7 @@ Delo v parent datoteki:
 #
 Novo v border:
 - calculate_max_h() ki vzame parametre in izračuna max h, malo očisti kodo znotraj glavne datoteke
-več jutri
+#več jutri
 #
 **27. marec 22**
 Delo v parent datoteki:
@@ -91,5 +91,5 @@ Delo v seed.py:
 - basic_steps() dela zelo preposto, napiše linearna navodila za most in platforme vmes;
 - je motivacija/ideja za celo funkcijo steps(), ki iz argumentov napravi list navodil, ki izgledajo kot [slika, (lokacija), rotacija]
 - parent datoteka naj bi ta list prebrala in ga izrisala s for loopom
-več čez teden
+#več čez teden
 #
