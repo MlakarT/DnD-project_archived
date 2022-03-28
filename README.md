@@ -78,7 +78,7 @@ Delo v parent datoteki:
 #
 Novo v border:
 - calculate_max_h() ki vzame parametre in izračuna max h, malo očisti kodo znotraj glavne datoteke
-več jutri (mogoče)
+več jutri
 #
 **27. marec 22**
 Delo v parent datoteki:
