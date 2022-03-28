@@ -20,7 +20,7 @@ Delo v parent datoteki:
 - Dodal testno okno za besedilni input, iz katerega bom pobiral informacije
 - Program je po implementirani kodi začel delovati počasi, nekje se počasi začne izvajati
 - Odpravil počasno delovanje in glitchanje
-#več v torek
+več v torek
 #
 **22. marec 22**
 
@@ -36,7 +36,7 @@ Delo v parent datoteki:
 - Okno za izpisovanje seeda
 - Pravilna velikost okna grid, na katerega se bodo kasneje izrisovale slike
 - Počistil kodo (Hvala Eva)
-#več jutri
+več jutri
 #
 
 **dodatno pojasnilo za h:**
